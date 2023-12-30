@@ -1,10 +1,12 @@
+import moment from 'moment';
 import Image from 'next/image';
 import React from 'react'
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Popover from "../../../components/dashboard/popover/Popover";
 
 function FileItems({file}) {
-  const image="/" + file.type + ".png"
+  const image="/" + file.extension + ".png"
   return (
     <div
     className="grid grid-cols-1
@@ -19,7 +21,6 @@ function FileItems({file}) {
         alt="file-icon"
         width={26}
         height={20}
-        on
       />
       <h2 className="text-[15px] truncate"
       >{file.name}</h2>
@@ -27,7 +28,8 @@ function FileItems({file}) {
     <div className="grid grid-cols-3 place-content-start">
       <h2 className="text-[15px]">
         {/* {moment(file.modifiedAt).format("MMMM DD, YYYY")} */}
-        {file.modifiedAt}
+        
+        {moment(file.modifiedAt).format("MMMM DD, YYYY")}
       </h2>
       
       <h2 className="text-[15px]">
@@ -35,7 +37,6 @@ function FileItems({file}) {
         {(file.size / 1024 ** 2).toFixed(2) + " MB"}  
       </h2>
 
-      <BsThreeDotsVertical/>
 
     </div>
     

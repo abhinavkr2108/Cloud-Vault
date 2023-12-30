@@ -35,9 +35,12 @@ export default function Home() {
         >
           Learn More
         </div>
+     
+
       </div>
     </div>
   </div>
+  
 </section>
   )
 }

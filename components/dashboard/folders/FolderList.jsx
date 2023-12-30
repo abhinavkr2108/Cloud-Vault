@@ -1,25 +1,13 @@
+
 import React from 'react'
 import FolderItem from './FolderItem'
+import { useRouter } from 'next/navigation'
 
-function FolderList() {
-    const folderLists = [
-        {
-            id:1,
-            name: "Folder 1",
-        },
-        {
-            id:2,
-            name: "Folder 2",
-        },
-        {
-            id:3,
-            name: "Folder 3",
-        },
-        {
-            id:4,
-            name: "Folder 4",
-        },
-    ]
+function FolderList({folderList}) {
+
+    const navigateToDetails = (folder) => {
+        window.location.href = `/dashboard/folders/${folder.id}`;
+    }
   return (
     <div className="bg-white px-5 py-2 mt-5 rounded-md">
         <div className="flex justify-between items-center mt-3">
@@ -29,8 +17,14 @@ function FolderList() {
     
         <div className="mt-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
             {
-                folderLists.map((folder,item) => (
-                    <div className="cursor-pointer"><FolderItem folder={folder}/></div>
+                folderList.map((folder,index) => (
+                    <div 
+                        key={index} 
+                        className="cursor-pointer"
+                        onClick={()=>navigateToDetails(folder,index)}
+                    >
+                        <FolderItem folder={folder}/>
+                    </div>
                 ))
             }
         </div>

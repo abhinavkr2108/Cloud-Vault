@@ -1,8 +1,14 @@
-import React from 'react'
+"use client";
+import React, { useContext, useEffect } from 'react'
+import { FolderContext } from "../../../context/FolderContext";
 
 function FilesPage() {
+
+
   return (
-    <div>FilesPage</div>
+    <div>
+      <h1>Files Page</h1>
+    </div>  
   )
 }
 
